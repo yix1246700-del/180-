@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>給180小寶寶 😗</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif}
+body{
+  background:linear-gradient(135deg,#fff1f7,#f3edff 48%,#e9f6ff);
+  color:#4d4050;
+  overflow:hidden;
+}
+.screen{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  transition:opacity .9s ease,visibility .9s ease;
+}
+#intro{z-index:5}
+#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(3px);opacity:.65;animation:float 6s ease-in-out infinite}
+.b1{width:210px;height:210px;background:#ffd4e5;top:8%;left:7%}
+.b2{width:170px;height:170px;background:#dcd0ff;right:8%;bottom:12%;animation-delay:1.2s}
+.b3{width:100px;height:100px;background:#cceeff;right:25%;top:12%;animation-delay:2s}
+@keyframes float{50%{transform:translateY(-18px) translateX(10px)}}
+
+.intro-card{
+  position:relative;width:min(88%,430px);padding:48px 28px;text-align:center;
+  background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.9);
+  border-radius:32px;box-shadow:0 20px 60px rgba(115,82,120,.16);
+  backdrop-filter:blur(15px);
+}
+.heart{font-size:58px;animation:beat 1.4s infinite}
+@keyframes beat{50%{transform:scale(1.12)}}
+h1{margin:12px 0 8px;font-size:29px;color:#73566f}
+.sub{margin:0 0 28px;color:#8d7c8b}
+button{
+  border:0;padding:14px 30px;border-radius:999px;background:#9d7bb5;color:white;
+  font-size:17px;cursor:pointer;box-shadow:0 9px 20px rgba(125,91,145,.22);
+  transition:.25s;
+}
+button:hover{transform:translateY(-3px);box-shadow:0 13px 25px rgba(125,91,145,.3)}
+
+#main{opacity:0;visibility:hidden;overflow:auto;padding:30px 16px}
+#main.show{opacity:1;visibility:visible}
+.container{width:min(760px,100%);margin:auto}
+.badge{
+  display:inline-block;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.7);
+  color:#92709a;font-size:14px;box-shadow:0 5px 20px rgba(100,70,110,.08)
+}
+.card{
+  margin-top:18px;padding:38px 30px 32px;background:rgba(255,255,255,.82);
+  border-radius:30px;box-shadow:0 20px 70px rgba(100,70,110,.14);
+  backdrop-filter:blur(14px);position:relative;overflow:hidden;
+}
+.card:before{content:"♡";position:absolute;right:22px;top:-18px;font-size:110px;color:#f5dbe8;opacity:.7}
+.title{text-align:center;color:#79536f;font-size:30px;margin:4px 0 26px}
+.message{font-size:18px;line-height:2.05;white-space:pre-line;position:relative}
+.highlight{color:#a76d91;font-weight:700}
+.sign{text-align:right;margin-top:25px;color:#8b7486;font-size:16px}
+.footer{text-align:center;margin:22px 0;color:#a18f9e;font-size:13px}
+
+.spark{position:fixed;pointer-events:none;animation:rise 2.5s linear forwards;font-size:18px}
+@keyframes rise{from{transform:translateY(0) scale(1);opacity:1}to{transform:translateY(-120px) scale(.5);opacity:0}}
+
+@media(max-width:500px){
+ .intro-card{padding:42px 22px}
+ .title{font-size:26px}
+ .card{padding:30px 22px}
+ .message{font-size:17px}
+}
+</style>
+</head>
+<body>
+
+<div id="intro" class="screen">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="intro-card">
+    <div class="heart">💗</div>
+    <h1>有一份生日祝福送給妳</h1>
+    <p class="sub">給今天的壽星 · 180小寶寶</p>
+    <button onclick="enter()">點我進入 ✨</button>
+  </div>
+</div>
+
+<div id="main" class="screen">
+  <div class="container">
+    <div style="text-align:center"><span class="badge">🎂 HAPPY BIRTHDAY</span></div>
+    <div class="card">
+      <div class="title">給180小寶寶 😗</div>
+      <div class="message"><span class="highlight">今天終於16歲啦🙃</span>
+
+終於不當小寶寶要當姐姐了嗎😁
+
+祝妳永遠美美ㄉ，
+然後，段考滿分，
+然後還有祝妳要快快樂樂，
+不要再去角落哭ㄌ🙃
+
+生日快樂啊～小寶寶～</div>
+      <div class="sign">155🙃<br>115.10.08</div>
+    </div>
+    <div class="footer">願妳16歲的每一天，都有很多值得開心的事情 ♡</div>
+  </div>
+</div>
+
+<script>
+function enter(){
+  document.getElementById('intro').classList.add('hide');
+  const main=document.getElementById('main');
+  main.classList.add('show');
+  document.body.style.overflow='auto';
+  for(let i=0;i<18;i++){
+    setTimeout(()=>{
+      const s=document.createElement('div');
+      s.className='spark';
+      s.textContent=['💗','✨','♡','🎀'][Math.floor(Math.random()*4)];
+      s.style.left=(20+Math.random()*60)+'%';
+      s.style.top=(65+Math.random()*20)+'%';
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(),2600);
+    },i*80);
+  }
+}
+</script>
+</body>
+</html>
